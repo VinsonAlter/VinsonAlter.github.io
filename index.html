@@ -1,0 +1,152 @@
+<!-- use class for styling  
+     id mainly for JavaScript Stuff -->
+
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width:device-width, initial-scale:1.0">
+        <title>Vinson's Portfolio Website</title>
+        <!-- even out the difference / compatibility issues with each browsers, maybe others better -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <!-- font-awesome link -->
+        <script src="https://kit.fontawesome.com/69efdc02b9.js" crossorigin="anonymous"></script>
+    
+        <!-- adding google font link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@400;700&display=swap" rel="stylesheet">
+    
+        <!-- link to css file-->    
+        <link rel = "stylesheet" href = "css/style.css"/>
+    </head>
+
+    <body>
+        <header>
+            <div class = "logo">
+                <img src = "img/icon.png" alt = "Icon for Decoration">
+            </div>
+            <button class = "nav-toggle" aria-label = "toggle navigation">
+                <span class = "scroll"></span>
+            </button>
+            <nav class = "nav">
+                <ul class = "nav__list">
+                    <li class = "nav__item"><a href = "#home" class = "nav__link">Home</a></li>
+                    <li class = "nav__item"><a href = "#Responsibilities" class = "nav__link">My Responsibilities</a></li>
+                    <li class = "nav__item"><a href = "#about" class = "nav__link">About Me</a></li>
+                    <li class = "nav__item"><a href = "#work" class = "nav__link">My Work</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Introduction about my profile -->
+        <section class = "intro" id = "home">
+            <h1 class = "section_title section__title--intro">
+                Hi, I am <strong>Vinson</strong>
+            </h1> 
+            <p class = "section__subtitle section__subtitle--intro">Web Developer</p>
+            <img src = "img/pasphoto.PNG" alt = "Own_Portfolio" class = "intro__img">
+        </section>
+
+        <!-- My Services -->
+        <section class = "my-respon" id = "Responsibilities">
+            <h2 class = "section__title section__title--responses">My Responsibilities</h2>
+
+            <!-- adding three columns -->
+            <div class = "responses">
+                <div class = "response">
+                    <h3>Web Development</h3>
+                    <p>Build products using HTML, CSS and JavaScript.
+                        Build user interfaces and prototypes from wireframes and designs.
+                        Code and deploy applications in a cross-platform, cross-browser environments.
+                    </p>
+                </div>
+
+                <div class = "response">
+                    <h3>Back-End Programming</h3>
+                    <p>Building and maintaining web applications. QA Testing. Troubleshooting and debugging.
+                        Ascessing the efficiency and speed of current applications.
+                    </p>
+                </div>
+
+                <div class = "response">
+                    <h3>IT Support</h3>
+                    <p>Installing and configuring computer hardware, software, systems, networks, printers and scanners.
+                        Monitoring and maintaining computer systems and networks.
+                        Responsing in a timely manner to service issues and requests.
+                        Providing technical support across the company.
+                    </p>
+                </div>
+            </div>
+
+            <a href = "#work" class = "btn">My Work</a>
+        </section>
+
+        <!-- About me -->
+        <section class = "about-me" id = "about">
+            <h2 class = "section__title section__title--about">About Me</h2>
+            <p class = "section__subtitle section__subtitle--about">Web Developer based on Medan, North Sumatra</p>
+
+        <!-- subsection for about-me -->
+            <div class = "about-me__body">
+                <p>I am a fresh graduate student in the Department of Computer Science at the University of Prima Indonesia
+                    graduating in February 2022. I have a Bachelor of Computer Science / Informatics.
+                </p>
+                <p>Previously, I worked for 2 years as Staff Administration where I worked at shipping department.
+                    Aside from work, I am also enthuastic in solving programming puzzles from Hackerrank website 
+                    as well as developing website, maintaining database and experiment with machine-learning algorithm.
+                    Currently worked as Web Developer at PT. Sardana IndahBerlian Motor.
+                </p>
+            </div>
+
+            <img src = "img/AY2A1899.JPG" alt = "Graduation Photo" class = "about-me__img">
+        </section>
+
+    <!-- My Work -->
+        <section class = "my-work" id = "work">
+            <h2 class = "section__title section__title--work">My Work</h2>
+            <p class = "section__subtitle section__subtitle--work">A Selection of my range of work</p>
+
+            <div class = "portfolio">
+                <!-- Portfolio Item # 1 -->
+                <a href = "portfolio-item.html" class = "portfolio__item">
+                    <img src = "img/portfolio-01.jpg" alt = "" class = "portfolio__img">
+                </a>
+
+                <!-- Portfolio Item # 2 -->
+                <a href = "portfolio-item1.html" class = "portfolio__item">
+                    <img src = "img/portfolio-02.jpg" alt = "" class = "portfolio__img">
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class = "footer">
+            <!-- Put your email here -->
+            <a href = "mailto:vinson7768@gmail.com" class = "footer__link">vinson7768@gmail.com</a>
+            <ul class = "social-list">
+                <li class = "social-list__item"><a class = "social-list__link"
+                    href = "https://www.linkedin.com/in/vinson-vinson-3336a8238">
+                    <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </li>
+                <li class = "social-list__item"><a class = "social-list__link"
+                    href = "https://wa.me/085102681114">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li class = "social-list__item"><a class = "social-list__link"
+                    href = "https://linevoom.line.me/user/_
+                            dQH43zJXbGzKlYizA9Rdxv4OxgdU0xpzo00EryA?utm_medium=windows&utm_source=desktop&utm_campaign=Profile">
+                    <i class="fa-brands fa-line"></i>
+                    </a>
+                </li> 
+            </ul>
+        </footer>
+
+        <script src = "js/index.js"></script>
+
+
+    </body>
+</html>

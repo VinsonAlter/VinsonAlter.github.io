@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <style>
+        section h1 {
+            font-weight:800;
+            color:#00FA9A;
+        }
+
+        p {
+            color: white;
+            font-size:1em;
+            font-weight:600;
+        }   
+
+        .department-list li {
+            padding: 0 2em 1.5em;
+            max-width:1000px;
+            margin:0 auto;
+            color: white;
+            font-weight:600;
+        }
+
+        .jurnal_link {
+            color: #00FA9A;
+            text-align: left;
+            padding: 2.5em 0;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        .jurnal_link:hover {
+            opacity:0.7;
+        }
+
+        .jurnal_link:focus {outline:none;} /* disable focus */
+
+        .background-darken {
+            max-width: 1000px;
+            margin: 0 auto;
+            background:#32394c;
+        }
+
+    </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Statistics Project</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <script src="https://kit.fontawesome.com/69efdc02b9.js" crossorigin="anonymous"></script>
+        
+        <!-- Update these with your own fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@400;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body style = "background:url('img/background-01.jpg');
+                    background-blend-mode: darken;">
+        <header>
+            <div class="logo">
+                <img src="img/icon.png" alt="Icon for Decoration">
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="scroll"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#Responsibilities" class="nav__link">My Responsibilities</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="index.html#work" class="nav__link">My Work</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class = "background-darken">
+            <section class="intro">
+                <h1 class="section__title section__title--intro">
+                    Project for <strong>Statistics</strong>
+                </h1>
+                <p class="section__subtitle section__subtitle--intro">Linear Regression</p>
+                <img src="img/portfolio-02.jpg" alt="" class="intro__img">
+            </section>
+        
+            <div class="portfolio-content">
+                <p>
+                    In this project, the data is received from KMMI DSF University of Prima Indonesia,
+                    the data received are clustered into five categories:
+                    <ul class = "department-list">
+                        <li>internal medicine</li>
+                        <li>heart disease</li>
+                        <li>lung disease</li>
+                        <li>neorogical disease</li>
+                        <li>orthopedic</li>
+                    </ul>
+                </p>
+            
+                <p>The published journal can be found here :<a href = "pdf_file/Jurnal_Penelitian.pdf" class = "jurnal_link">
+                    <i class="fa-solid fa-book-journal-whills"></i>
+                </a></p>
+            </div>
+        </div>
+        
+        
+        <!-- Footer -->
+        <footer class = "footer">
+            <!-- Put your email here -->
+            <a href = "mailto:vinson7768@gmail.com" class = "footer__link">vinson7768@gmail.com</a>
+            <ul class = "social-list">
+                <li class = "social-list__item"><a class = "social-list__link"
+                    href = "https://www.linkedin.com/in/vinson-vinson-3336a8238">
+                    <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </li>
+                <li class = "social-list__item"><a class = "social-list__link"
+                    href = "https://wa.me/085102681114">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li class = "social-list__item"><a class = "social-list__link"
+                    href = "https://linevoom.line.me/user/_
+                            dQH43zJXbGzKlYizA9Rdxv4OxgdU0xpzo00EryA?utm_medium=windows&utm_source=desktop&utm_campaign=Profile">
+                    <i class="fa-brands fa-line"></i>
+                    </a>
+                </li> 
+            </ul>
+        </footer>
+        
+        
+        <script src="js/index.js"></script>
+        
+    </body>
+</html>

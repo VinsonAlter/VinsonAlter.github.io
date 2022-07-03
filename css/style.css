@@ -1,0 +1,508 @@
+*,
+*::before,
+*::after {
+    box-sizing:border-box;
+}
+
+/* root has the highest specificity than html */
+/* note that what this 
+    --ff- represents font-family!, just shorthand function
+    --fw- represents font-weight
+    --fs- represents font size
+    --bs- represents box shadow 
+*/
+
+:root {
+    /* font-family-primary & secondary */
+    --ff-primary: 'Source Sans Pro', 'sans-serif';
+    --ff-secondary: 'Source Code Pro', 'mono-space';
+
+    /* fw-reg == font-weight-regular:300 */
+    --fw-reg:300;
+    --fw-bold:900;
+
+    /* --clr-bg, shorthand for background-color */
+    --clr-light: #fff;
+    --clr-dark: #32394c;
+    --clr-accent: #00FA9A;
+
+    /* setting font-size */
+    --fs-h1: 3rem; /* 3 rem = 48 px */
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    /* setting box shadow */
+    --bs:0.25em 0.25em 0.75em rgba(0, 0, 0, .25),
+         0.125em 0.125em 0.125em rgba(0, 0, 0, .15);
+}
+
+/* General Styles */
+html {
+    scroll-behavior: smooth; /* to recreate a scrolling down effect */
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    margin:0;
+    line-height: 1.6; /* the commonly recommended line-height */
+}
+
+section {
+    /* the padding keep the section not touching the edge of the screen */
+    padding: 5em 2em;
+}
+
+img {
+    display: block; /* separate each line */
+    max-width: 100%;
+}
+
+strong {font-weight: var(--fw-bold);}
+
+/* give significant focus than hover */
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+/* Typography */
+
+/* Design button */
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    text-transform: uppercase; /* turn the text into an uppercase letter */
+    letter-spacing: 2px; /* create a space between character */
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+    transform:scale(1.1); /* slightly makes the image larger by 1.1 times when hovered */
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {font-size: var(--fs-h1);}
+h2 {font-size: var(--fs-h2);}
+h3 {font-size: var(--fs-h3);}
+
+.section__title {
+    margin-bottom: .25em;
+}
+
+.section__title--intro {
+    font-weight:var(--fw-reg);
+    
+}
+
+/* separate strong elements with another sentence */
+.section__title--intro strong {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+    font-weight:var(--fw-bold);
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+    padding: .25em .575em; 
+    margin-bottom: 1em;
+}
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+.nav {
+    position:fixed;
+    background: var(--clr-dark);
+    color : var(--clr-light);
+    /* filled up the entire screen */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* to cover the entire homepage, well usually for nav usage only */
+    z-index: 100;
+
+    transform: translateX(100%); /* transform horizontally x-axis, ideally less than 90% is much better */
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1); /* transform y-axis only */
+}
+
+.nav__list {
+    display: flex;
+    list-style:none;
+    height:100%;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:center;
+    /* to remove any remaining space */
+    margin:0;
+    padding:0;
+}
+
+.nav__link {
+    color: inherit; /* --clr-light inherited value from .nav class */
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: var(--clr-accent);
+}
+
+.scroll {
+    display:block;
+    position:relative;
+}
+
+.nav-toggle {
+    padding: .5em;
+    background: transparent; 
+    border: 0; /* turn off the border */
+    cursor: pointer;
+    position:absolute;
+    right:1em;
+    top:1em;
+    z-index:1000; /* to cover entire page when clicked, the nav section will cover the entire page */
+}
+
+.nav-open .nav {
+    transform: translateX(0); /* slide the nav back when the burger button clicked */
+}
+
+.nav-open .nav-toggle {
+    position:fixed;
+}
+
+.nav-open .scroll {
+    transform: rotate(.625turn);
+}
+
+.nav-open .scroll::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .scroll::after {
+    opacity: 0;
+}
+
+.scroll,
+.scroll::before,
+.scroll::after {
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+
+.scroll::before,
+.scroll::after {
+    content: ''; /* always give pseudo-element content */
+    position: absolute; 
+    left: 0;
+    right: 0;
+}
+
+.scroll::before {top: 6px;} /* based on the scroll height which is 3px; */
+
+.scroll::after {bottom: 6px;} /* based on the scroll height which is 3px; */
+
+/* Intro section */
+.intro {
+    position:relative;
+    vertical-align: bottom; /* reducing white spaces */
+}
+
+.intro__img{
+    box-shadow: var(--bs);
+    display:block;
+    border:4px solid coral;
+    margin:0 auto;
+}
+
+.section__subtitle-intro {
+    display: inline-block;
+}
+
+/* changing text attribute when image is smaller */
+@media (min-width:600px){
+    .intro {
+        display: grid;
+        width: min-content;
+        margin: auto auto; /* match the content to the left and right screen */
+        grid-column-gap: 1.5em;
+        /* separating two grids */
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        /* for title takes the minimum space possible, for the subtitle takes the maximum space possible */
+        grid-template-columns: min-content max-content;
+    }
+
+    .intro__img {
+        grid-area: img;
+        min-width: 250px; /* make sure the img isn't overwritten */
+        position: relative;
+        z-index: 2; /* declare that intro__img stack is higher */
+    }
+
+    /* front-end dev label part */
+    .section__subtitle--intro {
+        align-self: start; /* Put the item at the start */
+        grid-column: -1 / 1; /* adjust the label below the intro */
+        grid-row: 2;
+        text-align:right;
+        position:relative;
+        /* stretch the label across the photo */
+        left: -1.5em; 
+        /* the formula is more applicable to relative positioning, 
+        to make sure that the above attribute align with each other */
+        width: calc(100% + 1.5em);
+    }
+}
+
+/* My Response Section */
+
+.my-respon {
+    background-color: var(--clr-dark);
+    background-size: cover;
+    background-blend-mode: darken; /* multiply the background-color to make background color darker */
+    color: var(--clr-light);
+    text-align:center;
+}
+
+.section__title--responses {
+    color: var(--clr-accent);
+    position: relative; /* adding position: relative for pseudo-element */
+}
+
+/* for pseudo element, add content, or the content won't appear */
+/* line after responses */
+.section__title--responses::after{
+    content:'';
+    display: block;
+    width: 3em;
+    height: 1px;
+    margin:0.5em auto 1em; /* setting right and left margin as auto */
+    background: currentColor; /* this value allows the child selector to copy parent colors */
+    opacity: 0.5; /* reduce the opacity by 50% */
+}
+
+.section__subtitle--work {
+    color: var(--clr-accent);
+    font-weight:var(--fw-bold);
+    margin-bottom:2em;
+}
+
+.responses {
+    margin-bottom:3em;
+}
+
+.response {
+    max-width: 300px; /* reduce the length of the <p> text */
+    margin:0 auto; /* to keep the center margin */
+}
+
+@media (min-width:800px){
+    .responses {
+        display:flex; /* makes three columns right away using display:flex */
+        max-width:1000px; 
+        margin-left: auto;
+        margin-right: auto;
+        gap:12px; /* create a gap to prevent the paragraph from overlapping each other when resizing */
+    }
+
+    /* adding space between each responses paragraph */
+    /* more sense using + attribute to select 'response' element directly after 'responses' element */
+    .responses + .response {
+        margin-left: 2em;
+    }
+}
+
+.about-me {
+    max-width: 1200px;
+    margin: 0 auto;
+    background:#737373;
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+    height:325px;
+    width:320px;
+    border:5px solid slategrey;
+}
+
+@media (min-width:600px){
+    /* when width = 600px, break the columns */
+    .about-me {
+        display: grid;
+        /* won't cause any issue for img if you want to use px, NOTE: create a gap if you do so */
+        grid-template-columns: 1fr 200px; /* for paragraph takes 1 fr, 200px for the image */
+        grid-template-areas:
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+
+    .section__title--about {
+        grid-area: title;
+    }
+
+    .section__subtitle--about {
+        grid-column:1 / -1;
+        grid-row:2;
+        /* get rid of image cover subtitle--about */
+        position:relative;
+        left:-1em;
+        width:calc(100% + 2em);
+        /* make sure that the text won't overlap with the image */
+        padding-left:1em;
+        padding-right:calc(200px + 4em);
+    }
+
+    .about-me__img {
+        grid-area:img;
+        position:relative;
+        z-index:2; /* makes sure that the img always in front of text */
+    }
+}
+
+/* My Work */
+
+.my-work {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align:center;
+}
+
+/* Portfolio */
+
+.portfolio {
+    display: grid;
+    width:auto;
+    margin:0 auto;
+    max-width:900px;
+    /* setting the minimum portfolio with 300px as minimum default, works for larger screens as well */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    /* can set up max-width, if you don't want the number of images in grid reduced when resizing */
+}
+
+/* adding hover effect */
+.portfolio__item {
+    background-color: var(--clr-accent);
+    overflow: hidden; /* yes, this one prevent the img to overflow out the grid */
+}
+
+.portfolio__img {
+    transition: 
+        transform 750ms cubic-bezier(.5, 0, .5, .1),
+        opacity 250ms linear;
+    min-width: 300px;
+}
+
+
+/* to prevent pic hovering from covering item:focus part */
+.portfolio__item:focus {
+    position:relative;
+    z-index:2; /* the main event from preventing img overflowing */
+}
+
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__img
+ {
+    transform: scale(1.2);
+    opacity: .65;
+}
+
+/* Styling the footer */
+.footer {
+    background: #111;
+    color: var(--clr-accent);
+    text-align:center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+}
+
+.footer a {
+    color: inherit;
+    text-decoration:none;
+} 
+
+.footer__link {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover { /* adding underline when hovering the email */
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none; /* erase the list bullet */
+    display: flex; /* display next to each other - 1 dimension only */
+    justify-content: center;
+    margin:2em 0 0; /* setting margin-right, margin-left, and margin-bottom: 0 */
+    padding:0;
+
+}
+
+.social-list__item {
+    margin:0 .5em;
+}
+
+.social-list__link {
+    padding: .5em; /* gives more spaces for clicking button */
+}
+
+.portfolio-content p {
+    padding: 0 2em 2em;
+    max-width: 800px;
+    margin:0 auto;
+}
